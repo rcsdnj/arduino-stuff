@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p>Temperatura detectada pelo sensor no Arduino: <b id="temperatureText"></b></p>
+<script>
+var myVar=setInterval(function(){loadTemperature()},1000);
+  function ajax(url, callbackFunction) {
+    var request =  new XMLHttpRequest();
+    request.open("GET", url, true);
+    request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+    request.onreadystatechange = function() {
+      var done = 4, ok = 200;
+      if (request.readyState == done && request.status == ok) {
+        if (request.responseText) {
+          callbackFunction(request.responseText);
+        }
+      }
+    };
+    request.send();
+  }
+
+  var loadTemperature = function () {
+    ajax('/temperature', getComplete);
+  }
+
+  var getComplete = function (text) {
+    document.getElementById("temperatureText").innerHTML=text;
+  }
+</script>
+</body>
+</html>
