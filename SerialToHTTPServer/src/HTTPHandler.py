@@ -1,4 +1,4 @@
-
+import BaseHTTPServer
 class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         
     temperature = "Undefined"
