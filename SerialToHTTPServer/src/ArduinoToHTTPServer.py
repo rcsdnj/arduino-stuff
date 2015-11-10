@@ -33,8 +33,8 @@ class ArduinoToHTTPServer(object):
         '''
         self.isRunning = True
         
-        self.initHTTPHandler()
         self.initArduinoSerial()
+        self.initHTTPHandler()
         
         
 
