@@ -1,5 +1,4 @@
-#define measuredreferenceVoltage 3.645
-#define INVALID_TEMPERATURE -300
+#define measuredreferenceVoltage 3.398
 #define TEMPERATURE_READINGS_COUNT 100
 float temperatureReadings[TEMPERATURE_READINGS_COUNT];
 int currentReadIndex = 0;
