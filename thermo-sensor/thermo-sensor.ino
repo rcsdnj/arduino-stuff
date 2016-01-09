@@ -1,4 +1,4 @@
-#define measuredreferenceVoltage 3.398
+#define measuredreferenceVoltage 5//3.398
 #define TEMPERATURE_READINGS_COUNT 100
 float temperatureReadings[TEMPERATURE_READINGS_COUNT];
 int currentReadIndex = 0;
@@ -7,8 +7,8 @@ bool readMinimum = false;
 // the setup routine runs once when you press reset:
 void setup() {
   // initialize serial communication at 9600 bits per second
-  Serial.begin(57600);
-  analogReference(EXTERNAL);
+  Serial.begin(9600);
+  //analogReference(EXTERNAL);
   for (int i = 0; i < TEMPERATURE_READINGS_COUNT; i++) {
     temperatureReadings[i] = 0.0f;
   }
