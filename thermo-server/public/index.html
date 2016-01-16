@@ -6,7 +6,7 @@
   <script type="text/javascript">
 
   var text;     // variable for the text div you'll create
-  var socket = new WebSocket("ws://localhost:8081");
+  var socket = new WebSocket("ws://" + location.hostname + ":8081");
 
   function openSocket() {
     text.html("Socket open");
