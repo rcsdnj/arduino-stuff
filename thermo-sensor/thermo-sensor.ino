@@ -14,8 +14,6 @@ void setup() {
   }
 }
 
-
-
 // the loop routine runs over and over again forever:
 void loop() {
   // read the input on analog pin 0:
@@ -40,7 +38,10 @@ void loop() {
     avgTemperatureReading = avgTemperatureReading/TEMPERATURE_READINGS_COUNT;
     // print out the value you read:
     float temperatureToShow = avgTemperatureReading;
-    Serial.println(temperatureToShow, 1);
+
+    if ((currentReadIndex % 10) == 0) {
+      Serial.println(temperatureToShow, 1);
+    }
   }
-  delay(10);
+  delay(50);
 }
