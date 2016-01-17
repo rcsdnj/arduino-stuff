@@ -21,6 +21,8 @@ function showError(error) {
    console.log('Serial port error: ' + error);
 }
 
+var log = require('single-line-log').stdout;
+
 myPort.on('open', showPortOpen);
 myPort.on('data', sendSerialData);
 myPort.on('close', showPortClose);
@@ -59,7 +61,7 @@ function broadcast(data) {
 }
 
 function sendSerialData(data) {
-   console.log(data);
+   log(data);
    // if there are webSocket connections, send the serial data
    // to all of them:
    if (connections.length > 0) {
