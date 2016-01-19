@@ -36,7 +36,7 @@ var connections = new Array;          // list of connections to the server
 wss.on('connection', handleConnection);
 
 function handleConnection(client) {
- console.log("New Connection"); // you have a new client
+ console.log("New Connection from " + client.address); // you have a new client
  connections.push(client); // add this client to the connections array
 
  client.on('message', sendToSerial); // when a client sends a message,
@@ -56,12 +56,18 @@ function sendToSerial(data) {
 // This function broadcasts messages to all webSocket clients
 function broadcast(data) {
  for (myConnection in connections) {   // iterate over the array of connections
-  connections[myConnection].send(data); // send the data to each connection
+   try {
+     connections[myConnection].send(data); // send the data to each connection
+   }
+   catch (err)
+   {
+     console.log("Error (" + err + ") sending data to " + connections[myConnection].address)
+   }
  }
 }
 
 function sendSerialData(data) {
-   log(data);
+   log("Temperature": + data + "°C");
    // if there are webSocket connections, send the serial data
    // to all of them:
    if (connections.length > 0) {
