@@ -61,13 +61,13 @@ function broadcast(data) {
    }
    catch (err)
    {
-     console.log("Error (" + err + ") sending data to " + connections[myConnection].address)
+     console.log("Error (" + err + ") sending data to " + connections[myConnection].address);
    }
  }
 }
 
 function sendSerialData(data) {
-   log("Temperature": + data + "°C");
+   log("Temperature: " + data + "°C");
    // if there are webSocket connections, send the serial data
    // to all of them:
    if (connections.length > 0) {
