@@ -36,7 +36,7 @@ var connections = new Array;          // list of connections to the server
 wss.on('connection', handleConnection);
 
 function handleConnection(client) {
- console.log("New Connection from " + client); // you have a new client
+ console.log("New Connection from " + client._socket.address); // you have a new client
  connections.push(client); // add this client to the connections array
 
  client.on('message', sendToSerial); // when a client sends a message,
